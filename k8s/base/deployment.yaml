@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-factor
+  labels:
+    app: stock-backtest-factor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-factor
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-factor
+    spec:
+      containers:
+      - name: stock-backtest-factor
+        image: stock-backtest-factor:latest
+        ports:
+        - containerPort: 8080
