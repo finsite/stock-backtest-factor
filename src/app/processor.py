@@ -1,5 +1,4 @@
-"""
-Processor module for stock-backtest-factor signal generation.
+"""Processor module for stock-backtest-factor signal generation.
 
 Validates incoming messages and computes a factor-based signal using
 placeholder scoring logic. Replace with actual factor models as needed.
@@ -15,8 +14,7 @@ logger = setup_logger(__name__)
 
 
 def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Validate the incoming raw message against the expected schema.
+    """Validate the incoming raw message against the expected schema.
 
     Args:
         message (dict[str, Any]): The raw message payload.
@@ -26,6 +24,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
     Raises:
         ValueError: If the message format is invalid.
+
     """
     logger.debug("🔍 Validating message schema...")
     if not validate_message_schema(message):
@@ -35,8 +34,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
 
 def compute_factor_signal(message: ValidatedMessage) -> dict[str, Any]:
-    """
-    Compute a factor-based signal using placeholder rules.
+    """Compute a factor-based signal using placeholder rules.
 
     In real-world use, this would use multiple financial ratios or
     factor weights to compute a ranking or signal.
@@ -46,6 +44,7 @@ def compute_factor_signal(message: ValidatedMessage) -> dict[str, Any]:
 
     Returns:
         dict[str, Any]: The enriched message with factor score and signal.
+
     """
     symbol = message.get("symbol", "UNKNOWN")
     pe_ratio = float(message.get("pe_ratio", 15))
